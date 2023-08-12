@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/navar :: head"></head>
+
+<body>
+	<header th:replace="layout/navar :: header"></header>
+	<div class="container mt-3">
+		<div class="card mt-3">
+			<div id="headercard" class="card-header bg-primary mb-3"></div>
+			<div class="card-body mt-3">
+				<h5 class="card-title " >REGISTRO DE CARRERAS</h5>
+				<form th:action="@{/registrarcarreras}" th:object="${controlador} "
+								method="post">
+					<div class="row">
+						<div class="col">
+						<div class="form-group">
+								ID DE LA CARRERA:<input type="text" th:field="*{id_carrera}"
+									class="form-control"
+									placeholder="digite el nombre de la carrera:" id="id_carrera">
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('id_carrera')}" th:errors="id_carrera"></small>
+							</div>
+							<div class="form-group">
+								NOMBRE DE LA CARRERA:<input type="text" th:field="*{carrera}"
+									class="form-control"
+									placeholder="digite el nombre de la carrera:" id="carrera">
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('carrera')}" th:errors="*{carrera}"></small>
+							</div>
+							<div class="form-group">
+								CLAVE:<input type="text" th:field="*{clave}"
+									class="form-control"
+									placeholder="digite la clave de la carrera:" id="clave">
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}"></small>
+							</div>
+							<div class="form-group">
+								NUMERO DE RVOE:<input type="text" th:field="*{rvoe}"
+									class="form-control"
+									placeholder="digite el rvoe:" id="rvoe">
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('rvoe')}" th:errors="*{rvoe}"></small>
+							</div>
+							<div class="form-group">
+								FECHA DEL RVOE:<input type="date" th:field="*{fecha_rvoe}"
+									class="form-control"
+									placeholder="digite la fecha del rvoe:" id="fecha_rvoe">
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('fecha_rvoe')}" th:errors="*{fecha_rvoe}"></small>
+							</div>
+							<div class="form-group">
+								CALIFICACION MINIMA:<input type="number" th:field="*{calificacion_minima}"
+									class="form-control"
+									placeholder="digite la calificacion minima:" id="calificacion_minima">
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('calificacion_minima')}" th:errors="*{calificacion_minima}"></small>
+							</div>
+							<div class="form-group">
+								CALIFICACION MAXIMA:<input type="number" th:field="*{calificacion_maxima}"
+									class="form-control"
+									placeholder="digite la calificacion maxima:" id="calificacion_maxima">
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('calificacion_maxima')}" th:errors="*{calificacion_maxima}"></small>
+							</div>
+							<div class="form-group">
+								CALIFICACION MINIMA APROBATORIA:<input type="text" th:field="*{calificacion_minima_aprobatoria}"
+									class="form-control"
+									placeholder="digite la calificacion minima aprobatoria:" id="calificacion_minima_aprobatoria">
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('calificacion_minima_aprobatoria')}" th:errors="*{calificacion_minima_aprobatoria}"></small>
+							</div>
+							<div class="form-group">
+								MODALIDAD:<input type="text" th:field="*{modalidad}"
+									class="form-control"
+									placeholder="especifique si es mixta o ordinario:" id="modalidad">
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('modalidad')}" th:errors="*{modalidad}"></small>
+							</div>
+							<br>
+								<div class="box-footer">
+									<button class="btn btn-success">Guardar</button>
+								</div>
+						</div>
+
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+	</div>
+
+
+	<footer th:replace="layout/navar :: footer"></footer>
+</body>
+
+</html>

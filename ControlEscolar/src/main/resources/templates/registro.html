@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/navar :: head"></head>
+
+<body>
+	<header th:replace="layout/navar :: header"></header>
+	<div class="container mt-3">
+		<div class="card mt-3">
+			<div id="headercard" class="card-header bg-primary mb-3"></div>
+			<div class="card-body mt-3">
+
+				<div class="row">
+					<div
+						class="col-lg-6 col-md-6 col-sn-6 container justify-content-center card">
+						<h1 class="text-center">Registro de estudiantes</h1>
+						<div class="card-body">
+							<form th:action="@{/registrar}" th:object="${controlador} "
+								method="post">
+								<br> <input type="hidden" th:field="*{id}" />
+								<div class="form-group">
+									NOMBRE:<input type="text" th:field="*{nombre}"
+										class="form-control" placeholder="digite su nombre:"
+										id="nombre"> <small class="form-text text-danger"
+										th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+								</div>
+								<br>
+								<div class="form-group">
+									PRIMER APELLIDO:<input type="text" th:field="*{primerapp}"
+										class="form-control" placeholder="digite su primer apellido:"
+										id="primer"> <small class="form-text text-danger"
+										th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+								</div>
+								<br>
+								<div class="form-group">
+									SEGUNDO APELLIDO:<input type="text" th:field="*{segundoapp}"
+										class="form-control" placeholder="digite su segundo apellido:"
+										id="segus"> <small class="form-text text-danger"
+										th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+								</div>
+								<br>
+								<div class="form-group">
+									TELÉFONO:<input type="number" th:field="*{numero}"
+										class="form-control"
+										placeholder="digite su teléfono 10 digitos:" id="num">
+									<small class="form-text text-danger"
+										th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+								</div>
+								<br>
+								<div class="box-footer">
+									<button class="btn btn-success">Guardar</button>
+								</div>
+							</form>
+						</div>
+
+
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</div>
+	<footer th:replace="layout/navar :: footer"></footer>
+</body>
+</html>
